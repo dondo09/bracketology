@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import renderIf from 'render-if';
+
+import Bracket from './bracket';
 
 const styles = {
   headline: {
@@ -29,6 +32,7 @@ class Dashboard extends Component {
   render() {
     return (
     <MuiThemeProvider>
+     <div>
       <Tabs
         value={this.state.value}
         onChange={this.handleChange}
@@ -36,24 +40,32 @@ class Dashboard extends Component {
         <Tab label="Dashboard" value="Dashboard">
           <div>
             <h2 style={styles.headline}>Dashboard</h2>
-            <p>
-              Tabs are also controllable if you want to programmatically pass them their values.
-              This allows for more functionality in Tabs such as not
-              having any Tab selected or assigning them different values.
-            </p>
           </div>
         </Tab>
         <Tab label="Rankings" value="Rankings">
           <div>
             <h2 style={styles.headline}>Rankings</h2>
             <p>
-              This is another example of a controllable tab. Remember, if you
-              use controllable Tabs, you need to give all of your tabs values or else
-              you wont be able to select them.
             </p>
           </div>
         </Tab>
       </Tabs>
+           {renderIf(this.state.value==='splash')(
+             <div>
+             <p> Splash </p>
+             </div>
+           )}
+           {renderIf(this.state.value==='Dashboard')(
+             <div>
+               <Bracket />
+             </div>
+           )}
+           {renderIf(this.state.value==='Rankings')(
+             <div>
+               <p> Rankings </p>
+             </div>
+           )}
+      </div>
     </MuiThemeProvider>
     );
   }
