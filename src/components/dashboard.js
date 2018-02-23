@@ -1,60 +1,62 @@
 import React, { Component } from 'react';
-import { Menu, Icon, Layout } from 'antd';
-import renderIf from 'render-if';
-import 'antd/dist/antd.css';
+import {Tabs, Tab} from 'material-ui/Tabs';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-const {Header, Content} = Layout;
-
+const styles = {
+  headline: {
+    fontSize: 24,
+    paddingTop: 16,
+    marginBottom: 12,
+    fontWeight: 400,
+  },
+};
 
 class Dashboard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            current: 'splash'
-        }
-    }
-  handleClick = (event) => {
-    this.setState({
-      current: event.key,
-    });
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 'a',
+    };
   }
+
+  handleChange = (value) => {
+    this.setState({
+      value: value,
+    });
+  };
+
   render() {
     return (
-      <div><Header>
-           <Menu
-               onClick={this.handleClick}
-               selectedKeys={[this.state.current]}
-               mode="horizontal"
-               style={{backgroundColor: "#fffcff",
-                       color: "#f53234"}}
-             >
-               <Menu.Item key="Dashboard">
-                 <Icon type="home" /> Dashboard
-               </Menu.Item>
-               <Menu.Item key="Rankings">
-                 <Icon type="area-chart" /> Rankings
-               </Menu.Item>
-           </Menu>
-           </Header>
-           <Content>
-           {renderIf(this.state.current==='splash')(
-             <div>
-             <p> Splash </p>
-             </div>
-           )}
-           {renderIf(this.state.current==='Dashboard')(
-             <div>
-               <p> Dashboard </p>
-             </div>
-           )}
-           {renderIf(this.state.current==='Rankings')(
-             <div>
-               <p> Rankings </p>
-             </div>
-           )}
-           </Content>
-        </div>
+    <MuiThemeProvider>
+      <Tabs
+        value={this.state.value}
+        onChange={this.handleChange}
+      >
+        <Tab label="Dashboard" value="Dashboard">
+          <div>
+            <h2 style={styles.headline}>Dashboard</h2>
+            <p>
+              Tabs are also controllable if you want to programmatically pass them their values.
+              This allows for more functionality in Tabs such as not
+              having any Tab selected or assigning them different values.
+            </p>
+          </div>
+        </Tab>
+        <Tab label="Rankings" value="Rankings">
+          <div>
+            <h2 style={styles.headline}>Rankings</h2>
+            <p>
+              This is another example of a controllable tab. Remember, if you
+              use controllable Tabs, you need to give all of your tabs values or else
+              you wont be able to select them.
+            </p>
+          </div>
+        </Tab>
+      </Tabs>
+    </MuiThemeProvider>
     );
   }
 }
+
 export default Dashboard;

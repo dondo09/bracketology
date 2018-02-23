@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "antd": "^3.2.1",
+    "auth0-js": "^9.3.0",
+    "material-ui": "^0.20.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.1",
+    "react-tournament-bracket": "^0.1.0",
     "render-if": "^0.1.1"
   },
   "scripts": {
