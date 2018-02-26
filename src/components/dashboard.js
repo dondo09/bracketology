@@ -3,7 +3,11 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import renderIf from 'render-if';
 
-import Bracket from './bracket';
+import BracketLL from './Bracket/bracketLL';
+import BracketUL from './Bracket/bracketUL';
+import BracketUR from './Bracket/bracketUR';
+import BracketLR from './Bracket/bracketLR';
+import Rankings from './ranking';
 
 const styles = {
   headline: {
@@ -56,13 +60,20 @@ class Dashboard extends Component {
              </div>
            )}
            {renderIf(this.state.value==='Dashboard')(
-             <div>
-               <Bracket />
+            <div>
+             <div class="topRow">
+               <BracketUL />
+               <BracketUR />
+            </div>
+            <div class="bottomRow">
+               <BracketLL />
+               <BracketLR />
              </div>
+            </div>
            )}
            {renderIf(this.state.value==='Rankings')(
              <div>
-               <p> Rankings </p>
+               <Rankings />
              </div>
            )}
       </div>
