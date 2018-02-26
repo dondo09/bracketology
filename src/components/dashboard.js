@@ -7,6 +7,7 @@ import BracketLL from './Bracket/bracketLL';
 import BracketUL from './Bracket/bracketUL';
 import BracketUR from './Bracket/bracketUR';
 import BracketLR from './Bracket/bracketLR';
+import Final from './Bracket/final'
 import Rankings from './ranking';
 
 import './Bracket/bracket.css';
@@ -70,6 +71,7 @@ class Dashboard extends Component {
                <BracketUR />
             </div>
             <div class="Final">
+            <Final />
             </div>
             <div class="bottomRow">
                <BracketLL />
