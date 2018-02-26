@@ -13,6 +13,24 @@
   flex-direction: row;
 }
 
+.Final {
+  display: flex;
+  height: 200px;
+  width:  1000px;
+  background-color: red;
+  margin: 0 auto;
+}
+
+.upperFinal {
+  height: 400px;
+  width:  400px;
+}
+
+.lowerFinal {
+  height: 400px;
+  width:  400px;
+}
+
 
 /* LEFT SIDE */ 
 
@@ -24,7 +42,7 @@ main.left{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  width:200px;
+  width:150px;
   list-style:none;
   padding:0;
 }
@@ -82,7 +100,7 @@ main.right{
   display:flex;
   flex-direction:column;
   justify-content:center;
-  width:200px;
+  width:150px;
   list-style:none;
   padding:0;
 }

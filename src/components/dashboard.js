@@ -9,6 +9,8 @@ import BracketUR from './Bracket/bracketUR';
 import BracketLR from './Bracket/bracketLR';
 import Rankings from './ranking';
 
+import './Bracket/bracket.css';
+
 const styles = {
   headline: {
     fontSize: 24,
@@ -63,10 +65,16 @@ class Dashboard extends Component {
             <div>
              <div class="topRow">
                <BracketUL />
+               <div class="upperFinal">
+               </div>
                <BracketUR />
+            </div>
+            <div class="Final">
             </div>
             <div class="bottomRow">
                <BracketLL />
+               <div class="lowerFinal">
+               </div>
                <BracketLR />
              </div>
             </div>

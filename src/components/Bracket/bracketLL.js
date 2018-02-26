@@ -12,7 +12,6 @@ class BracketLL extends Component {
     render() {
     	return (
     		<div>
-    		<h1>2013 NCAA Tournament - Midwest Bracket</h1>
 <main id="tournament" class="left">
 	<ul class="roundL round-1">
 		<li class="spacerL">&nbsp;</li>
